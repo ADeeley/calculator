@@ -1,15 +1,40 @@
 <html>
     <head>
+        <!-- Set charachter encoding for the document -->         
+        <meta charset="utf-8">
+
+        <!-- Instruct Internet Explorer to use it's latest rendering engine -->
+        <meta http-equiv="x-ua-compatible"               
+              content="ie=edge">
+
+        <!-- Viewpoint for responsive web design -->         
+        <meta name="Viewport"               
+              content="width=device-width, initial scale=1">
+        
+        <!-- Javascript Calculator -->
+        <title>Calculator</title>
+
+        <!-- Meta Description -->
+        <meta name="description"
+              content="Simple calculator program written in 'vanilla' Javascript">
+        <html lang="en">
+        
+        <!-- Critical CSS for above the fold --> 
+        <style></style>
+
+
         <link rel="stylesheet"
               type="text/css"
               href="style.css">
         <script src="main.js"></script>
-        <title>Calculator</title>
     </head>
     <body>
         <div id="calculator">
             <input id="screen"></input><br>
             <div id="buttons">
+                <button class="lg_btn">C</button>
+                <button class="sm_btn">CE</button>
+                <button class="sm_btn">/</button><br>
                 <button class="sm_btn">1</button>
                 <button class="sm_btn">2</button>
                 <button class="sm_btn">3</button>
@@ -17,18 +42,18 @@
                 <button class="sm_btn">4</button>
                 <button class="sm_btn">5</button>
                 <button class="sm_btn">6</button>
-                <button class="sm_btn">/</button></br>
+                <button class="sm_btn">+</button></br>
                 <button class="sm_btn">7</button>
                 <button class="sm_btn">8</button>
                 <button class="sm_btn">9</button>
-                <button class="sm_btn">+</button></br>
+                <button class="sm_btn">-</button></br>
                 <button class="sm_btn">.</button>
                 <button class="sm_btn">0</button>
-                <button class="sm_btn">=</button>
-                <button class="sm_btn">+</button>
+                <button class="lg_btn">=</button>
             </div>
         </div>
     
     </body>
 
+    <footer>By Adam M Deeley ad.deeley@gmail.com</footer>
 </html>
