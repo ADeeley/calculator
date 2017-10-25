@@ -26,6 +26,9 @@ function Operators() {
     }
 }
 
+// Instantiate operators for global use
+var ops = new Operators();
+
 function exprStrToArr(str) {
     /**
      * returns an array of numbers and operators.
@@ -54,7 +57,6 @@ function exprStrToArr(str) {
 }
 
 window.onload = function() {
-    var ops = new Operators();
     console.log(exprStrToArr("12*4+8-89/34"));
     document.getElementById("buttons").addEventListener("click", detectButton);
 }
@@ -74,7 +76,27 @@ function calculate(expr) {
      * screen.
      */
     console.log(expr);
+    var candidate;
+    var currentHighest;
+    var highestPriority = -1;
 
+    for (var i = 0; i < expr.length; i++) {
+        // Make the first operator the highest initially
+        if (ops.isOperator(expr[i])) {
+            if (highestPriority == -1) {
+                highestPriority = i;
+            }
+            else {
+                // Compare the operator's priorities
+                candidate = ops.getPriority(expr[i]);
+                currentHighest = ops.getPriority(expr[highestPriority]);
+                if (candidate > currentHighest) {
+                    highestPriority = i;
+                }
+            }
+        }
+    }
+    console.log("Highest priority found: " + highestPriority);
 }
 
 function clear() {
