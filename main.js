@@ -73,6 +73,7 @@ function calculate(expr) {
      * Calculates the expression and returns the result to the input
      * screen.
      */
+    console.log(expr);
 
 }
 
@@ -119,7 +120,10 @@ function detectButton() {
                 console.log("Test");
                 break;
             case "=":
-                calculate(document.getElementById("screen").value);
+                // Convert to array and calculate
+                var strExpr = document.getElementById("screen").value;
+                var arrExpr = exprStrToArr(strExpr);
+                calculate(arrExpr);
                 break;
             case "C":
                 clear();
