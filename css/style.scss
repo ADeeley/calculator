@@ -1,0 +1,66 @@
+$stdFontSz: 18px;
+$btnSz: 50px;
+$borderRad: 5px;
+$blue1: #70A6FF;
+$blue2: #213e6d;
+
+button {
+    margin: 5px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: $blue1;
+}
+
+button:hover {
+    background-color: $blue1;
+}
+
+footer {
+    margin: 100px auto auto auto;
+    font-family: Arial;
+}
+
+.sm_btn {
+    width: $btnSz;
+    height: $btnSz;
+    font-size: $stdFontSz;
+    margin: 1px;
+}
+
+.lg_btn {
+    width: $btnSz *2 + 6;
+    height: $btnSz;
+    font-size: $stdFontSz;
+    margin: 1px;
+}
+
+#calcName {
+    margin: 5px auto 15px 5px;
+    color: white;
+}
+
+#screen {
+    height: 50px;
+    width: 219px;
+    margin: 0px 5px 5px 5px;
+    padding: 10px;
+    font-size: $stdFontSz;
+    color: grey;
+    border-radius: $borderRad;
+}
+
+#calculator {
+    margin: auto;
+    background-color: $blue2;
+    width: 230px;
+    height: 359px;
+    border-radius: $borderRad;
+}
+
+#buttons {
+    margin: 5px;
+}
+
+
