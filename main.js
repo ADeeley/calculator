@@ -86,7 +86,6 @@ function exprStrToArr(str) {
 }
 
 window.onload = function() {
-    console.log(exprStrToArr("12*4+8-89/34"));
     document.getElementById("buttons").addEventListener("click", detectButton);
 }
 
@@ -148,7 +147,9 @@ function clear() {
     /**
      * Clears the whole input.
      */
-    document.getElementById("screen").value = "";
+    var input = document.getElementById("screen");
+    input.value = "";
+    input.placeholder = "0";
     console.log("Clear called");
 }
 
@@ -184,7 +185,6 @@ function detectButton() {
             case "-":
             case ".":
                 updateExpression(input.innerHTML);
-                console.log("Test");
                 break;
             case "=":
                 // Convert to array and calculate
@@ -201,6 +201,3 @@ function detectButton() {
         }
     }
 };
-
-
-
