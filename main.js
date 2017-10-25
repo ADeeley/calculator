@@ -106,26 +106,38 @@ function calculate(expr) {
      */
     var highestPriority = ops.locateHighestPriority(expr);
 
-    var a = parseInt(expr[0]);
-    var b = parseInt(expr[2]);
-    var result = 0;
-
-    switch(expr[1]) {
-        case "/":
-            result = a / b;
-            break;
-        case "*":
-            result = a * b;
-            break;
-        case "+":
-            result = a + b;
-            break;
-        case "-":
-            result = a - b;
-            break;
+    // If no operators remain
+    if (highestPriority == -1) {
+        console.log("Final: " + result);
+        return expr;
     }
+    // Resolve the highest priority operator
+    else {
+        var exprSection = expr.splice(highestPriority - 1, 3) 
+        var a = parseInt(exprSection[0]);
+        var b = parseInt(exprSection[2]);
+        var result = 0;
 
-    console.log("Final: " + result);
+        switch(exprSection[1]) {
+            case "/":
+                result = a / b;
+                break;
+            case "*":
+                result = a * b;
+                break;
+            case "+":
+                result = a + b;
+                break;
+            case "-":
+                result = a - b;
+                break;
+        }
+        console.log("Final: " + result);
+    }
+    // Add result back to the expr
+    expr.splice(highestPriority - 1, 0, result);
+    console.log(expr);
+    // return recursively
 }
 
 function clear() {
