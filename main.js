@@ -24,6 +24,35 @@ function Operators() {
          */
         return symbols[val];
     }
+
+   this.locateHighestPriority = function(expr) {
+       /**
+        * Returns the index of the highest priority operator
+        * in the given equation.
+        */
+        console.log(expr);
+        var candidate;
+        var currentHighest;
+        var highestPriority = -1;
+
+        for (var i = 0; i < expr.length; i++) {
+            // Make the first operator the highest initially
+            if (ops.isOperator(expr[i])) {
+                if (highestPriority == -1) {
+                    highestPriority = i;
+                }
+                else {
+                    // Compare the operator's priorities
+                    candidate = ops.getPriority(expr[i]);
+                    currentHighest = ops.getPriority(expr[highestPriority]);
+                    if (candidate > currentHighest) {
+                        highestPriority = i;
+                    }
+                }
+            }
+        }
+        console.log("Highest priority found: " + highestPriority);
+   } 
 }
 
 // Instantiate operators for global use
@@ -75,28 +104,28 @@ function calculate(expr) {
      * Calculates the expression and returns the result to the input
      * screen.
      */
-    console.log(expr);
-    var candidate;
-    var currentHighest;
-    var highestPriority = -1;
+    var highestPriority = ops.locateHighestPriority(expr);
 
-    for (var i = 0; i < expr.length; i++) {
-        // Make the first operator the highest initially
-        if (ops.isOperator(expr[i])) {
-            if (highestPriority == -1) {
-                highestPriority = i;
-            }
-            else {
-                // Compare the operator's priorities
-                candidate = ops.getPriority(expr[i]);
-                currentHighest = ops.getPriority(expr[highestPriority]);
-                if (candidate > currentHighest) {
-                    highestPriority = i;
-                }
-            }
-        }
+    var a = parseInt(expr[0]);
+    var b = parseInt(expr[2]);
+    var result = 0;
+
+    switch(expr[1]) {
+        case "/":
+            result = a / b;
+            break;
+        case "*":
+            result = a * b;
+            break;
+        case "+":
+            result = a + b;
+            break;
+        case "-":
+            result = a - b;
+            break;
     }
-    console.log("Highest priority found: " + highestPriority);
+
+    console.log("Final: " + result);
 }
 
 function clear() {
