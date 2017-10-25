@@ -1,9 +1,9 @@
 function Operators() {
     var symbols = {
-        "-" : 0,
-        "+" : 1,
-        "*" : 2, 
-        "/" : 3
+        "-" : 1,
+        "+" : 2,
+        "*" : 3, 
+        "/" : 4
     }
 
     this.isOperator = function(val) {
@@ -51,8 +51,8 @@ function Operators() {
                 }
             }
         }
-        console.log("Highest priority found: " + highestPriority);
-   } 
+       return highestPriority;
+    }
 }
 
 // Instantiate operators for global use
@@ -106,10 +106,12 @@ function calculate(expr) {
      */
     var highestPriority = ops.locateHighestPriority(expr);
 
+    console.log("HighestPriority: " + highestPriority);
+    console.log("ExprSection: " + exprSection);
     // If no operators remain
-    if (highestPriority == -1) {
-        console.log("Final: " + result);
-        return expr;
+    if (highestPriority == -1 || expr.length <= 1) {
+        document.getElementById("screen").value = expr;
+        return;
     }
     // Resolve the highest priority operator
     else {
@@ -135,9 +137,11 @@ function calculate(expr) {
         console.log("Final: " + result);
     }
     // Add result back to the expr
-    expr.splice(highestPriority - 1, 0, result);
+    expr.splice(highestPriority - 1, 0, String(result));
     console.log(expr);
     // return recursively
+    calculate(expr);
+
 }
 
 function clear() {

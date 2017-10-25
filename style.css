@@ -3,31 +3,29 @@
     height: 50px;
     font-size: 18px;
     margin: 1px;
-    border-radius: 20%;
 }
 
 .lg_btn {
-    width: 105px;
+    width: 106px;
     height: 50px;
     font-size: 18px;
     margin: 1px;
-    border-radius: 10%;
 }
 
 #screen {
     height: 50px;
     width: 219px;
-    margin: 5px;
+    margin: 0px 5px 5px 5px;
     padding: 10px;
     font-size: 18px;
-    font-weight: bold;
 
 }
 
 #calculator {
     background-color: black;
     width: 230px;
-    height: 330px;
+    height: 359px;
+    border-radius: 3%;
 }
 
 #buttons {
