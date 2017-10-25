@@ -4,22 +4,40 @@ window.onload = function() {
 }
 
 function updateExpression(val) {
+    /**
+     * Updates the expression string in the input screen with the value
+     * of the button pressed
+     */
     document.getElementById("screen").value += val; 
 }
 
 function calculate() {
+    /**
+     * Calculates the expression and returns the result to the input
+     * screen.
+     */
     console.log("Calculate called");
 }
 
 function clear() {
+    /**
+     * Clears the whole input.
+     */
     console.log("Clear called");
 }
 
 function clearEntry() {
+    /**
+     * Clears the last entry.
+     */
     console.log("Clear Entry called");
 }
 
 function detectButton() {
+    /**
+     * Checks which button was pressed and routes the event to the
+     * appropriate function.
+     */
     var input = event.target;
     if (input.tagName == "BUTTON") {
         switch (input.innerHTML) {
